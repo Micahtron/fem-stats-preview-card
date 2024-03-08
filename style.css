@@ -1,0 +1,136 @@
+:root {
+  --veryDarkBlue: hsl(233, 47%, 7%);
+  --darkSatBlue: hsl(244, 38%, 16%);
+  --softViolet: hsl(277, 64%, 61%);
+
+  --white: hsl(0, 0%, 100%);
+  --whiteSlight_T: hsla(0, 0%, 100%, 0.75);
+  --whiteMed_T: hsla(0, 0%, 100%, 0.6)
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+body {
+  background: var(--veryDarkBlue);
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  padding-top: 2rem;
+}
+
+
+.comp-container {
+  background: var(--darkSatBlue);
+  color: var(--whiteSlight_T);
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comp-container .img-holder {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  flex: 1;
+}
+.comp-container .img-holder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--softViolet);
+  opacity: 0.34;
+}
+
+.comp-container .img-holder img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.comp-container .content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+  flex: 1;
+}
+
+.comp-container .content .info h3 {
+  font-size: 2.3rem;
+  color: var(--white);
+}
+
+.comp-container .content .info p {
+  line-height: 1.75;
+  margin: 2rem 0;
+}
+
+.statbox-set {
+  font-family: "Lexend Deca", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.statbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 1rem;
+  color: var(--whiteMed_T);
+}
+
+.statbox strong {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-bottom: 0.25rem;
+  font-family: "Inter", sans-serif;
+  color: var(--white);
+}
+
+.highlight {
+  color: var(--softViolet);
+}
+
+/* === Content ============ */
+.comp-image {
+  content: url('./images/image-header-mobile.jpg');
+}
+
+
+@media screen and (min-width: 768px){
+  .comp-image {
+    content: url('./images/image-header-desktop.jpg');
+  }
+  .comp-container .img-holder {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .comp-container {
+    flex-direction: row-reverse;
+  }
+
+  .comp-container .content {
+    text-align: left;
+  }
+
+  .statbox-set {
+    flex-direction: row;
+  }
+}
